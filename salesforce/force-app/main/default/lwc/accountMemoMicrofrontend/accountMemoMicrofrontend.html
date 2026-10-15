@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:note">
+        <template lwc:if={errorMessage}>
+            <p class="slds-p-horizontal_medium slds-text-color_error">{errorMessage}</p>
+        </template>
+        <!-- 外部（Vercel）の React を iframe で表示する。メモの読み書きとログインは React が Supabase に対して行う -->
+        <lightning-ui-embedding lwc:ref="embedding" src={appUrl} title="取引先メモ Microfrontend"></lightning-ui-embedding>
+    </lightning-card>
+</template>

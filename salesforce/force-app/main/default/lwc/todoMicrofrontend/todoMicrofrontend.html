@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title={cardTitle} icon-name="standard:task">
+        <template lwc:if={displayError}>
+            <p class="slds-p-horizontal_medium slds-text-color_error">{displayError}</p>
+        </template>
+        <!-- 外部（Vercel）の React アプリを iframe で表示する。src はマウント後に変更できない -->
+        <lightning-ui-embedding
+            lwc:ref="embedding"
+            src={appUrl}
+            title="Todo List Microfrontend"
+            ontodocomplete={handleComplete}
+            ontodoadd={handleAdd}
+        ></lightning-ui-embedding>
+    </lightning-card>
+</template>

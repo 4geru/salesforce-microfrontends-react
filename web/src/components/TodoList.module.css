@@ -1,0 +1,44 @@
+/* 色・フォントは CSS 変数にして、ホストごとに上書きできるようにする */
+.list {
+  --todo-bg: #ffffff;
+  --todo-fg: #181818;
+  --todo-muted: #706e6b;
+  --todo-border: #e5e5e5;
+  --todo-accent: #0176d3;
+  font-family: var(--todo-font, system-ui, -apple-system, 'Hiragino Sans', sans-serif);
+  background: var(--todo-bg);
+  color: var(--todo-fg);
+  border: 1px solid var(--todo-border);
+  border-radius: 12px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.title { font-size: 1.1rem; margin: 0; }
+.count { color: var(--todo-muted); font-size: 0.85rem; }
+.empty { color: var(--todo-muted); text-align: center; margin: 24px 0; }
+.items { list-style: none; margin: 0; padding: 0; }
+.item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 4px; border-bottom: 1px solid var(--todo-border);
+}
+.item:last-child { border-bottom: none; }
+.done .text { text-decoration: line-through; color: var(--todo-muted); }
+.text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.due { color: var(--todo-muted); font-size: 0.8rem; white-space: nowrap; }
+.badge { font-size: 0.7rem; padding: 2px 6px; border-radius: 999px; white-space: nowrap; }
+.high { background: #fde2e1; color: #ba0517; }
+.normal { background: #e5f0fb; color: #014486; }
+.low { background: #eef4e5; color: #2e844a; }
+.button {
+  border: 1px solid var(--todo-accent); color: var(--todo-accent); background: transparent;
+  border-radius: 6px; padding: 4px 10px; cursor: pointer; font: inherit; font-size: 0.85rem;
+}
+.button:hover:not(:disabled) { background: var(--todo-accent); color: #fff; }
+.button:disabled { opacity: 0.5; cursor: default; }
+.form { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.input, .select {
+  font: inherit; font-size: 0.9rem; padding: 4px 8px;
+  border: 1px solid var(--todo-border); border-radius: 6px; background: var(--todo-bg); color: var(--todo-fg);
+}
+.input { flex: 1 1 160px; min-width: 0; }

@@ -1,0 +1,3 @@
+/* iframe の自動リサイズと循環しないよう、ビューポート基準の高さ（100vh 等）は使わない */
+body { margin: 0; padding: 4px; background: transparent; }
+.status { color: #706e6b; text-align: center; font-family: system-ui, sans-serif; margin: 16px 0; }
