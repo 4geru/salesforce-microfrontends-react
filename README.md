@@ -2,7 +2,7 @@
 
 Web で作った React の画面を、Salesforce の画面の中にそのまま表示するデモです。Salesforce Microfrontends（UI Embedding / `lightning-ui-embedding`）を使っています。
 
-解説記事: [Web で作った React が、Salesforce の画面でそのまま動く ― Microfrontends を試した](https://zenn.dev/4geru/articles/salesforce-microfrontends-react)
+解説記事: [Salesforce Microfrontends 入門 ― Web の React を小さな LWC で Salesforce に埋め込む](https://zenn.dev/4geru/articles/salesforce-microfrontends-react)
 
 | デモ | 内容 |
 |---|---|
@@ -99,7 +99,7 @@ ToDo リストは、このバックエンドが無くても動きます。
 ## つまずきやすい点
 
 - **props の中身は文字列だけにする**: 配列やオブジェクトを props に入れると、ゲストの初期化が終わらなくなった（`lightning-ui-embedding` 2.2.5-rc.3、`@salesforce/platform-sdk` 12.9.0 で観察）。このデモは ToDo の一覧を JSON 文字列（`todosJson`）にして渡している
-- **`<form>` を使わない**: Salesforce が作る iframe の sandbox は `allow-scripts allow-same-origin` で、`allow-forms` が無い。フォーム送信はブラウザに止められ、`submit` イベントも発火しない。このデモはボタンのクリックと Enter キーで処理を呼んでいる
-- **公開用の URL を使う**: 上の「1.」を参照
+- **`<form>` を使わない**: `lightning-ui-embedding` に `sandbox` 属性を指定しないと、iframe の sandbox は `allow-scripts allow-same-origin` で、`allow-forms` が無い。フォーム送信はブラウザに止められ、`submit` イベントも発火しない。このデモはボタンのクリックと Enter キーで処理を呼んでいる
+- **本番用の URL を使う**: 上の「1.」を参照
 
 セキュリティ面のまとめは [docs/security.md](docs/security.md) にあります。
