@@ -1,8 +1,18 @@
 # salesforce-microfrontends-react
 
+![Web アプリの画面が、Salesforce のページの枠にはまるイメージ](docs/images/hero.png)
+
 Web で作った React の画面を、Salesforce の画面の中にそのまま表示するデモです。Salesforce Microfrontends（UI Embedding / `lightning-ui-embedding`）を使っています。
 
 解説記事: [Salesforce Microfrontends 入門 ― Web の React を小さな LWC で Salesforce に埋め込む](https://zenn.dev/4geru/articles/salesforce-microfrontends-react)
+
+![Salesforce の取引先ページと Web アプリで、付箋が同期する様子](docs/images/demo-memo-sync.gif)
+
+*Salesforce の取引先ページ（左）と Web アプリ（右）で、同じメモが同期する*
+
+![Web アプリと Salesforce の商談ページに並べた ToDo リスト](docs/images/demo-todo.png)
+
+*Web アプリ（左）と Salesforce の商談ページ（右）。同じ部品で、表示するデータが違う*
 
 | デモ | 内容 |
 |---|---|
@@ -12,6 +22,8 @@ Web で作った React の画面を、Salesforce の画面の中にそのまま�
 2026 年 10 月時点、Developer Edition で動かしたものです。
 
 ## 構成
+
+![web/ は Vercel に、salesforce/ は Salesforce の組織に置き、メモのデータは Supabase に置く構成図](docs/images/readme-architecture.png)
 
 ```
 .
@@ -25,7 +37,8 @@ Web で作った React の画面を、Salesforce の画面の中にそのまま�
 │     ├ lwc/accountMemoMicrofrontend/  共同編集メモのホスト（取引先のレコードページ用）
 │     ├ classes/TodoController.cls     ToDo の取得・更新・作成
 │     └ cspTrustedSites/               ゲストのオリジンを iframe で表示する許可
-└ docs/security.md   セキュリティのまとめ（CORS、sandbox、残っているリスク）
+├ docs/security.md   セキュリティのまとめ（CORS、sandbox、残っているリスク）
+└ docs/images/      README の画像
 ```
 
 `web/` の入口:
@@ -44,6 +57,8 @@ Web で作った React の画面を、Salesforce の画面の中にそのまま�
 - ゲストの公開先（このデモでは Vercel）
 
 ## 動かし方
+
+![ゲストを公開し、URL を書き換え、デプロイして、ページに置くまでの 4 ステップ](docs/images/readme-setup.png)
 
 ### 1. ゲスト（React）を公開する
 
